@@ -13,7 +13,29 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+require_relative "../helpers/helper"
+
 RSpec.configure do |config|
+  config.before(:suite) do
+    puts ">>>>>>>>>> ANTES de TODA a suíte de testes"
+  end
+
+  config.after(:suite) do
+    puts ">>>>>>>>>> DEPOIS de TODA a suíte de testes"
+  end
+
+  config.before(:all) do
+    puts ">>>>>>>>>> ANTES de TODOS os testes"
+  end
+
+  config.after(:context) do
+    puts ">>>>>>>>>> DEPOIS de TODOS os testes"
+  end
+
+  # Helper Methods de módulo
+  config.include Helper
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
@@ -44,8 +66,8 @@ RSpec.configure do |config|
   # triggering implicit auto-inclusion in groups with matching metadata.
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
-# The settings below are suggested to provide a good initial experience
-# with RSpec, but feel free to customize to your heart's content.
+  # The settings below are suggested to provide a good initial experience
+  # with RSpec, but feel free to customize to your heart's content.
 =begin
   # This allows you to limit a spec run to individual examples or groups
   # you care about by tagging them with `:focus` metadata. When nothing
