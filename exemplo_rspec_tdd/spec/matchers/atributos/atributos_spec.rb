@@ -1,6 +1,14 @@
 require "pessoa"
 
 describe "Atributos" do
+  before(:all) do
+    puts ">>>>>>>>>> ANTES de TODOS os testes"
+  end
+
+  after(:context) do
+    puts ">>>>>>>>>> DEPOIS de TODOS os testes"
+  end
+
   # before(:each) do
   #   puts "ANTES"
   #   @pessoa = Pessoa.new

@@ -17,21 +17,18 @@
 require_relative "../helpers/helper"
 
 RSpec.configure do |config|
-  config.before(:suite) do
-    puts ">>>>>>>>>> ANTES de TODA a suíte de testes"
+
+  config.define_derived_metadata do |meta|
+    meta[:aggregate_failures] = true
   end
 
-  config.after(:suite) do
-    puts ">>>>>>>>>> DEPOIS de TODA a suíte de testes"
-  end
+  # config.before(:suite) do
+  #   puts ">>>>>>>>>> ANTES de TODA a suíte de testes"
+  # end
 
-  config.before(:all) do
-    puts ">>>>>>>>>> ANTES de TODOS os testes"
-  end
-
-  config.after(:context) do
-    puts ">>>>>>>>>> DEPOIS de TODOS os testes"
-  end
+  # config.after(:suite) do
+  #   puts ">>>>>>>>>> DEPOIS de TODA a suíte de testes"
+  # end
 
   # Helper Methods de módulo
   config.include Helper
